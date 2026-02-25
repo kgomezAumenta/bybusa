@@ -44,7 +44,7 @@ const Hero = () => {
             <div className="container mx-auto px-6 md:px-12 relative z-30">
                 <div className="max-w-[1200px] mx-auto flex flex-col items-center md:items-start text-center md:text-left pt-10 pb-32 md:pb-40">
                     <h1 className="text-[#0E587F] font-bold text-[50px] md:text-[114px] leading-[100%] tracking-[-0.01em] uppercase mb-8">
-                        {/* font-family: Merchanto (Requested as Bold Round) */}
+                        {/* font-family: Staatliches */}
                         AUTHENTIC <span className="text-[0.6em] md:text-[0.45em] align-baseline font-bold">TOUCH</span> <br />
                         OF HOMEMADE <br />
                         TASTE

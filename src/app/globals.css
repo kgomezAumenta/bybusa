@@ -1,15 +1,15 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary-blue: #003366;
-  --color-secondary-blue: #0055a4;
-  --color-accent-yellow: #ffcc00;
-  --color-accent-orange: #ff9900;
-  --color-text-dark: #333333;
-  --color-text-light: #ffffff;
+  --color-primary-blue: #0E587F;
+  --color-secondary-blue: #208EC8;
+  --color-accent-yellow: #FEB100;
+  --color-accent-red: #C72342;
+  --color-dark: #0E587F;
+  --color-light: #ffffff;
 
-  --font-inter: var(--font-inter);
-  --font-roboto-condensed: var(--font-roboto-condensed);
+  --font-montserrat: var(--font-montserrat);
+  --font-staatliches: var(--font-staatliches);
 }
 
 @layer base {
@@ -18,8 +18,8 @@
   }
 
   body {
-    @apply text-text-dark bg-white overflow-x-hidden;
-    font-family: var(--font-inter), sans-serif;
+    @apply text-dark bg-white overflow-x-hidden;
+    font-family: var(--font-montserrat), sans-serif;
   }
 
   h1,
@@ -29,7 +29,7 @@
   h5,
   h6 {
     @apply font-bold uppercase tracking-tight;
-    font-family: var(--font-roboto-condensed), var(--font-inter), sans-serif;
+    font-family: var(--font-staatliches), sans-serif;
   }
 }
 
@@ -39,7 +39,7 @@
   }
 
   .btn-primary {
-    @apply bg-accent-yellow hover:bg-accent-orange text-primary-blue font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 uppercase text-sm tracking-widest;
+    @apply bg-accent-yellow hover:bg-accent-red text-primary-blue font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 uppercase text-sm tracking-widest;
   }
 
   .nav-link {
@@ -72,9 +72,9 @@
 }
 
 .product-tab-active {
-  @apply bg-primary-blue text-white;
+  @apply bg-accent-red text-white;
 }
 
 .product-tab-inactive {
-  @apply bg-gray-100 text-gray-500 hover:bg-gray-200;
+  @apply bg-transparent text-white hover:bg-accent-red/20;
 }

@@ -10,13 +10,13 @@ const Products = () => {
     const activeCategory = productData.find(cat => cat.id === activeTab);
 
     return (
-        <section id="products" className="section-padding bg-gray-50">
+        <section id="products" className="section-padding bg-secondary-blue">
             <div className="container mx-auto">
                 <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-bold text-primary-blue mb-4">
-                        OUR BEST <span className="text-secondary-blue">PRODUCTS</span>
+                    <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+                        OUR BEST <span className="text-white">PRODUCTS</span>
                     </h2>
-                    <div className="w-24 h-1 bg-accent-yellow mx-auto"></div>
+                    {/* <div className="w-24 h-1 bg-accent-yellow mx-auto"></div> */}
                 </div>
 
                 {/* Tabs */}
@@ -26,8 +26,8 @@ const Products = () => {
                             key={category.id}
                             onClick={() => setActiveTab(category.id)}
                             className={`px-6 py-3 rounded-full font-bold text-sm tracking-widest transition-all duration-300 uppercase ${activeTab === category.id
-                                    ? 'product-tab-active shadow-lg scale-105'
-                                    : 'product-tab-inactive'
+                                ? 'product-tab-active shadow-lg scale-105'
+                                : 'product-tab-inactive'
                                 }`}
                             aria-selected={activeTab === category.id}
                             role="tab"
@@ -42,9 +42,9 @@ const Products = () => {
                     {activeCategory?.items.map((product) => (
                         <div
                             key={product.id}
-                            className="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-shadow group flex flex-col"
+                            className="bg-[#1371A2] rounded-2xl p-6 shadow-md hover:shadow-xl transition-shadow group flex flex-col"
                         >
-                            <div className="relative aspect-square mb-6 overflow-hidden rounded-xl bg-gray-100 flex items-center justify-center p-8">
+                            <div className="relative aspect-square mb-6 overflow-hidden rounded-xl flex items-center justify-center p-8">
                                 {/* TODO: replace with real image: /public/assets/products/[name].png */}
                                 <Image
                                     src={product.image}
@@ -58,21 +58,22 @@ const Products = () => {
                                 />
                             </div>
 
-                            <h3 className="text-xl font-bold text-primary-blue mb-2">{product.name}</h3>
-                            <p className="text-gray-500 text-sm mb-4 flex-grow">{product.description}</p>
+                            <h3 className="text-center text-[20px] font-bold text-light mb-2">{product.name}</h3>
+                            <p className="text-center text-light text-[16px] mb-4 flex-grow">{product.description}</p>
 
                             <div className="flex flex-wrap gap-2 mb-6">
+                                <h3 className="text-light text-[16px]">Sizes</h3><br />
                                 {product.sizes.map((size) => (
                                     <span
                                         key={size}
-                                        className="px-3 py-1 bg-gray-100 text-gray-500 text-xs font-bold rounded-md"
+                                        className="px-3 py-1 bg-[#0F4B6A] text-light text-xs font-bold rounded-md"
                                     >
                                         {size}
                                     </span>
                                 ))}
                             </div>
 
-                            <button className="w-full py-3 bg-primary-blue text-white rounded-xl font-bold hover:bg-secondary-blue transition-colors uppercase tracking-widest text-xs">
+                            <button className="w-full py-3 bg-[#FEB100] text-white rounded-xl font-bold hover:bg-secondary-blue transition-colors uppercase tracking-widest text-xs">
                                 BUY NOW!
                             </button>
                         </div>

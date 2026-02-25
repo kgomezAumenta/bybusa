@@ -68,20 +68,23 @@ const Contact = () => {
                             }}
                         />
                         <div className="absolute inset-0 bg-primary-blue/30" />
-                        <div className="absolute inset-0 flex items-center justify-center p-12 text-center">
+                        {/* <div className="absolute inset-0 flex items-center justify-center p-12 text-center">
                             <h2 className="text-5xl font-bold text-white leading-tight">
                                 FRESHNESS <br />
                                 IS JUST AN <br />
                                 <span className="text-accent-yellow">EMAIL AWAY</span>
                             </h2>
-                        </div>
+                        </div> */}
                     </div>
 
                     {/* Form Column */}
-                    <div className="lg:w-1/2 p-8 md:p-12 lg:p-16 text-[#208EC8]}">
+                    <div className="lg:w-1/2 p-8 md:p-12 lg:p-16 text-[#0E587F]">
                         <h2 className="text-3xl md:text-4xl font-bold mb-8 uppercase tracking-tight">
                             WE'D LOVE TO <span className="text-accent-yellow">HEAR FROM YOU!</span>
                         </h2>
+                        <p className="text-lg mb-8 leading-relaxed">
+                            Do you have questions, suggestions, or want to distribute our products? <strong>We&apos;re here to help.</strong>
+                        </p>
 
                         <form onSubmit={handleSubmit} className="space-y-6">
                             {/* Honeypot hidden input */}
@@ -151,7 +154,7 @@ const Contact = () => {
                                 type="submit"
                                 className={`w-full py-4 rounded-xl font-bold uppercase tracking-widest transition-all ${status === 'loading'
                                     ? 'bg-blue-800 cursor-not-allowed'
-                                    : 'bg-accent-yellow text-primary-blue hover:bg-accent-orange shadow-lg'
+                                    : 'bg-[#D01215] text-white hover:bg-[#D01215]/80 shadow-lg'
                                     }`}
                             >
                                 {status === 'loading' ? 'SENDING...' : 'SEND FORM'}

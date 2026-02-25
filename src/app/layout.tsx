@@ -1,12 +1,17 @@
 import type { Metadata } from "next";
-import { Inter, Roboto_Condensed } from "next/font/google";
+import { Montserrat, Staatliches } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const robotoCondensed = Roboto_Condensed({
+const montserrat = Montserrat({
   subsets: ["latin"],
-  weight: ["400", "700"],
-  variable: "--font-roboto-condensed"
+  variable: "--font-montserrat",
+  weight: ["300", "400", "500", "700", "900"],
+});
+
+const staatliches = Staatliches({
+  subsets: ["latin"],
+  variable: "--font-staatliches",
+  weight: ["400"],
 });
 
 export const metadata: Metadata = {
@@ -20,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${robotoCondensed.variable}`}>
+    <html lang="en" className={`${montserrat.variable} ${staatliches.variable}`}>
       <body className="antialiased">
         {children}
       </body>
