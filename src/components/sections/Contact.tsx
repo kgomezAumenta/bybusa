@@ -54,7 +54,7 @@ const Contact = () => {
     return (
         <section id="contact" className="section-padding bg-white">
             <div className="container mx-auto">
-                <div className="flex flex-col lg:flex-row items-stretch gap-12 bg-primary-blue rounded-3xl overflow-hidden shadow-2xl">
+                <div className="flex flex-col lg:flex-row items-stretch gap-12 rounded-3xl overflow-hidden shadow-2xl">
                     {/* Decorative Image Column */}
                     <div className="lg:w-1/2 relative hidden lg:block">
                         {/* TODO: replace with real image: /public/assets/contact/contact-side.png */}
@@ -78,7 +78,7 @@ const Contact = () => {
                     </div>
 
                     {/* Form Column */}
-                    <div className="lg:w-1/2 p-8 md:p-12 lg:p-16 text-white">
+                    <div className="lg:w-1/2 p-8 md:p-12 lg:p-16 text-[#208EC8]}">
                         <h2 className="text-3xl md:text-4xl font-bold mb-8 uppercase tracking-tight">
                             WE'D LOVE TO <span className="text-accent-yellow">HEAR FROM YOU!</span>
                         </h2>
@@ -150,8 +150,8 @@ const Contact = () => {
                                 disabled={status === 'loading'}
                                 type="submit"
                                 className={`w-full py-4 rounded-xl font-bold uppercase tracking-widest transition-all ${status === 'loading'
-                                        ? 'bg-blue-800 cursor-not-allowed'
-                                        : 'bg-accent-yellow text-primary-blue hover:bg-accent-orange shadow-lg'
+                                    ? 'bg-blue-800 cursor-not-allowed'
+                                    : 'bg-accent-yellow text-primary-blue hover:bg-accent-orange shadow-lg'
                                     }`}
                             >
                                 {status === 'loading' ? 'SENDING...' : 'SEND FORM'}
