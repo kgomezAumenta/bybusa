@@ -52,127 +52,161 @@ const Contact = () => {
     };
 
     return (
-        <section id="contact" className="section-padding bg-white">
-            <div className="container mx-auto">
-                <div className="flex flex-col lg:flex-row items-stretch gap-12 rounded-3xl overflow-hidden shadow-2xl">
-                    {/* Decorative Image Column */}
-                    <div className="lg:w-1/2 relative hidden lg:block">
-                        {/* TODO: replace with real image: /public/assets/contact/contact-side.png */}
+        <section id="contact" className="pb-10 pt-10 scroll-mt-20 bg-[#F7F2F0] rounded-t-[3vw] relative">
+            {/* Decorative Elements */}
+            <div className="absolute top-0 right-0 w-full h-0 z-30 pointer-events-none">
+                {/* Tomato */}
+                <div className="absolute top-0 right-0 w-[16vw] aspect-square -translate-y-[23%] translate-x-[35%]">
+                    <Image
+                        src="/assets/contact/tomato.png"
+                        alt="Tomato Decoration"
+                        fill
+                        className="object-contain"
+                    />
+                </div>
+                {/* Quality Trust SVG */}
+                <div className="absolute top-0 right-0 w-[18vw] aspect-square -translate-y-[24%] translate-x-[20%]">
+                    <Image
+                        src="/assets/contact/right_quality-trust.svg"
+                        alt="Quality Trust"
+                        fill
+                        className="object-contain"
+                    />
+                </div>
+            </div>
+            <div className="flex flex-col lg:flex-row items-stretch gap-12 overflow-hidden w-[95%] mx-auto">
+                {/* Decorative Image Column */}
+                <div className="lg:w-[45%] relative hidden lg:block">
+                    <Image
+                        src="/assets/contact/contact-side.png"
+                        alt="Contact Us"
+                        fill
+                        className="object-cover rounded-3xl overflow-hidden"
+                        onError={(e) => {
+                            (e.target as any).src = 'https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=1548&auto=format&fit=crop';
+                        }}
+                    />
+                    {/* Gradient Overlay */}
+                    <div
+                        className="absolute top-0 left-0 right-0 h-1/4 rounded-t-3xl pointer-events-none z-10"
+                        style={{ background: 'linear-gradient(180deg, #88080875 0%, rgba(58, 5, 5, 0) 100%)' }}
+                    />
+                    <div
+                        className="absolute bottom-0 left-0 right-0 h-1/4 rounded-b-3xl pointer-events-none z-10"
+                        style={{ background: 'linear-gradient(180deg, rgba(58, 5, 5, 0) 0%, #88080898 100%)' }}
+                    />
+                    {/* Certified Insignia */}
+                    <div className="absolute bottom-[12%] -right-30 z-20 w-65 h-65">
                         <Image
-                            src="/assets/contact/contact-side.png"
-                            alt="Contact Us"
+                            src="/assets/contact/insignia_certified.svg"
+                            alt="Certified"
                             fill
-                            className="object-cover"
-                            onError={(e) => {
-                                (e.target as any).src = 'https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=1548&auto=format&fit=crop';
-                            }}
+                            className="object-contain"
                         />
-                        <div className="absolute inset-0 bg-primary-blue/30" />
-                        {/* <div className="absolute inset-0 flex items-center justify-center p-12 text-center">
-                            <h2 className="text-5xl font-bold text-white leading-tight">
-                                FRESHNESS <br />
-                                IS JUST AN <br />
-                                <span className="text-accent-yellow">EMAIL AWAY</span>
-                            </h2>
-                        </div> */}
                     </div>
+                </div>
 
-                    {/* Form Column */}
-                    <div className="lg:w-1/2 p-8 md:p-12 lg:p-16 text-[#0E587F]">
-                        <h2 className="text-3xl md:text-4xl font-bold mb-8 uppercase tracking-tight">
-                            WE'D LOVE TO <span className="text-accent-yellow">HEAR FROM YOU!</span>
-                        </h2>
-                        <p className="text-lg mb-8 leading-relaxed">
-                            Do you have questions, suggestions, or want to distribute our products? <strong>We&apos;re here to help.</strong>
-                        </p>
+                {/* Form Column */}
+                <div className="lg:w-[55%] p-8 md:pt-12 lg:pt-16">
+                    <h2 className="text-6xl md:text-8xl font-black mb-6 leading-none select-none tracking-wide text-primary-blue w-[85%]">
+                        We'd love <span className="text-4xl md:text-6xl">to</span> hear from you!
+                    </h2>
 
-                        <form onSubmit={handleSubmit} className="space-y-6">
-                            {/* Honeypot hidden input */}
+                    <p className="text-lg md:text-lg mb-8 leading-relaxed w-[70%] text-darker">
+                        Do you have questions, suggestions, or want to distribute our products? <strong>We&apos;re here to help.</strong>
+                    </p>
+
+                    <form onSubmit={handleSubmit} className="space-y-6 w-[85%]">
+                        {/* Honeypot hidden input */}
+                        <input
+                            type="text"
+                            name="honeypot"
+                            className="hidden"
+                            value={formData.honeypot}
+                            onChange={handleChange}
+                        />
+
+                        <div className="space-y-2">
+                            <label className="text-s font-medium tracking-widest text-darker">Full Name</label>
                             <input
+                                required
                                 type="text"
-                                name="honeypot"
-                                className="hidden"
-                                value={formData.honeypot}
+                                name="fullName"
+                                value={formData.fullName}
                                 onChange={handleChange}
+                                className="w-full border-b-2 border-secondary-blue px-4 focus:outline-none focus:border-accent-yellow transition-colors"
                             />
+                        </div>
 
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div className="space-y-2">
-                                    <label className="text-xs font-bold uppercase tracking-widest text-blue-200">Full Name</label>
-                                    <input
-                                        required
-                                        type="text"
-                                        name="fullName"
-                                        value={formData.fullName}
-                                        onChange={handleChange}
-                                        className="w-full bg-blue-900/50 border border-blue-800 rounded-xl px-4 py-3 focus:outline-none focus:border-accent-yellow transition-colors placeholder:text-blue-300"
-                                        placeholder="John Doe"
-                                    />
-                                </div>
-                                <div className="space-y-2">
-                                    <label className="text-xs font-bold uppercase tracking-widest text-blue-200">Phone Number</label>
-                                    <input
-                                        required
-                                        type="tel"
-                                        name="phone"
-                                        value={formData.phone}
-                                        onChange={handleChange}
-                                        className="w-full bg-blue-900/50 border border-blue-800 rounded-xl px-4 py-3 focus:outline-none focus:border-accent-yellow transition-colors placeholder:text-blue-300"
-                                        placeholder="+1 (555) 000-0000"
-                                    />
-                                </div>
-                            </div>
 
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div className="space-y-2">
-                                <label className="text-xs font-bold uppercase tracking-widest text-blue-200">E-mail Address</label>
+                                <label className="text-s font-medium tracking-widest text-darker">Phone Number</label>
+                                <input
+                                    required
+                                    type="tel"
+                                    name="phone"
+                                    value={formData.phone}
+                                    onChange={handleChange}
+                                    className="w-full border-b-2 border-secondary-blue px-4 focus:outline-none focus:border-accent-yellow transition-colors"
+                                />
+                            </div>
+                            <div className="space-y-2">
+                                <label className="text-s font-medium tracking-widest text-darker">E-mail Address</label>
                                 <input
                                     required
                                     type="email"
                                     name="email"
                                     value={formData.email}
                                     onChange={handleChange}
-                                    className="w-full bg-blue-900/50 border border-blue-800 rounded-xl px-4 py-3 focus:outline-none focus:border-accent-yellow transition-colors placeholder:text-blue-300"
-                                    placeholder="john@example.com"
+                                    className="w-full border-b-2 border-secondary-blue px-4 focus:outline-none focus:border-accent-yellow transition-colors"
                                 />
                             </div>
+                        </div>
 
-                            <div className="space-y-2">
-                                <label className="text-xs font-bold uppercase tracking-widest text-blue-200">Your Message</label>
-                                <textarea
-                                    required
-                                    name="message"
-                                    rows={4}
-                                    value={formData.message}
-                                    onChange={handleChange}
-                                    className="w-full bg-blue-900/50 border border-blue-800 rounded-xl px-4 py-3 focus:outline-none focus:border-accent-yellow transition-colors placeholder:text-blue-300 resize-none"
-                                    placeholder="How can we help you?"
+                        <div className="space-y-2">
+                            <label className="text-s font-medium tracking-widest text-darker">Your Message</label>
+                            <textarea
+                                required
+                                name="message"
+                                rows={4}
+                                value={formData.message}
+                                onChange={handleChange}
+                                className="w-full border-b-2 border-secondary-blue px-4 focus:outline-none focus:border-accent-yellow transition-colors resize-none"
+                            />
+                        </div>
+
+                        <button
+                            disabled={status === 'loading'}
+                            type="submit"
+                            className={`mx-auto flex items-center gap-3 p-2 px-8 rounded-full font-bold uppercase tracking-widest transition-all ${status === 'loading'
+                                ? 'bg-blue-800 cursor-not-allowed'
+                                : 'bg-[#D01215] text-white hover:bg-[#D01215]/80 shadow-lg'
+                                }`}
+                        >
+                            <div className="relative w-8 h-8">
+                                <Image
+                                    src="/assets/icons/icon_bottle.svg"
+                                    alt="Bottle Icon"
+                                    fill
+                                    className="object-contain brightness-0 invert"
                                 />
                             </div>
+                            {status === 'loading' ? 'SENDING...' : 'SEND FORM'}
+                        </button>
 
-                            <button
-                                disabled={status === 'loading'}
-                                type="submit"
-                                className={`w-full py-4 rounded-xl font-bold uppercase tracking-widest transition-all ${status === 'loading'
-                                    ? 'bg-blue-800 cursor-not-allowed'
-                                    : 'bg-[#D01215] text-white hover:bg-[#D01215]/80 shadow-lg'
-                                    }`}
-                            >
-                                {status === 'loading' ? 'SENDING...' : 'SEND FORM'}
-                            </button>
+                        {status === 'success' && (
+                            <div className="p-4 bg-green-500/20 border border-green-500 text-green-300 rounded-xl text-center font-bold">
+                                MESSAGE SENT SUCCESSFULLY! WE'LL CONTACT YOU SOON.
+                            </div>
+                        )}
 
-                            {status === 'success' && (
-                                <div className="p-4 bg-green-500/20 border border-green-500 text-green-300 rounded-xl text-center font-bold">
-                                    MESSAGE SENT SUCCESSFULLY! WE'LL CONTACT YOU SOON.
-                                </div>
-                            )}
-
-                            {status === 'error' && (
-                                <div className="p-4 bg-red-500/20 border border-red-500 text-red-300 rounded-xl text-center font-bold">
-                                    {errorMessage}
-                                </div>
-                            )}
-                        </form>
-                    </div>
+                        {status === 'error' && (
+                            <div className="p-4 bg-red-500/20 border border-red-500 text-red-300 rounded-xl text-center font-bold">
+                                {errorMessage}
+                            </div>
+                        )}
+                    </form>
                 </div>
             </div>
         </section>
