@@ -98,8 +98,16 @@ const Hero = () => {
 
                                 {/* yellow Button */}
                                 <div className="pt-4 md:pt-0">
-                                    <button className="bg-[#FEB100] hover:bg-[#E5A000] text-white font-bold py-4 px-10 md:py-5 md:px-14 rounded-full transition-all duration-300 transform hover:scale-105 shadow-xl uppercase tracking-[0.1em] text-sm md:text-base">
-                                        SEE PRODUCTS!
+                                    <button className="bg-[#FEB100] hover:bg-[#E5A000] text-white font-bold p-2 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-xl uppercase tracking-[0.1em] text-sm md:text-base flex items-center gap-3">
+                                        <div className="relative w-8 h-8 flex-shrink-0">
+                                            <Image
+                                                src="/assets/icons/icon_bottle.svg"
+                                                alt="Bottle Icon"
+                                                fill
+                                                className="object-contain brightness-0 invert"
+                                            />
+                                        </div>
+                                        <span className='drop-shadow-[0_0_5px_rgba(255,255,255,0.36)]' >SEE PRODUCTS!</span>
                                     </button>
                                 </div>
                             </div>

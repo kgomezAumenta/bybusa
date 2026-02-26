@@ -11,9 +11,16 @@
 
   --font-montserrat: var(--font-montserrat);
   --font-staatliches: var(--font-staatliches);
+
+  --text-shadow-glow: 0px 0px 5px #FFFFFF5C;
 }
 
 @layer base {
+  button {
+    text-shadow: var(--text-shadow-glow);
+    cursor: pointer;
+  }
+
   html {
     scroll-behavior: smooth;
   }

@@ -127,7 +127,7 @@ const Contact = () => {
                         />
 
                         <div className="space-y-2">
-                            <label className="text-s font-medium tracking-widest text-darker">Full Name</label>
+                            <label className="text-s font-bold tracking-widest text-darker">Full Name</label>
                             <input
                                 required
                                 type="text"
@@ -141,7 +141,7 @@ const Contact = () => {
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div className="space-y-2">
-                                <label className="text-s font-medium tracking-widest text-darker">Phone Number</label>
+                                <label className="text-s font-bold tracking-widest text-darker">Phone Number</label>
                                 <input
                                     required
                                     type="tel"
@@ -152,7 +152,7 @@ const Contact = () => {
                                 />
                             </div>
                             <div className="space-y-2">
-                                <label className="text-s font-medium tracking-widest text-darker">E-mail Address</label>
+                                <label className="text-s font-bold tracking-widest text-darker">E-mail Address</label>
                                 <input
                                     required
                                     type="email"
@@ -165,7 +165,7 @@ const Contact = () => {
                         </div>
 
                         <div className="space-y-2">
-                            <label className="text-s font-medium tracking-widest text-darker">Your Message</label>
+                            <label className="text-s font-bold tracking-widest text-darker">Your Message</label>
                             <textarea
                                 required
                                 name="message"
@@ -179,7 +179,7 @@ const Contact = () => {
                         <button
                             disabled={status === 'loading'}
                             type="submit"
-                            className={`mx-auto flex items-center gap-3 p-2 px-8 rounded-full font-bold uppercase tracking-widest transition-all ${status === 'loading'
+                            className={`drop-shadow-[0_0_5px_rgba(255,255,255,0.36)] mx-auto flex items-center gap-3 p-2 px-8 rounded-full font-bold uppercase tracking-widest transition-all ${status === 'loading'
                                 ? 'bg-blue-800 cursor-not-allowed'
                                 : 'bg-[#D01215] text-white hover:bg-[#D01215]/80 shadow-lg'
                                 }`}
@@ -192,7 +192,7 @@ const Contact = () => {
                                     className="object-contain brightness-0 invert"
                                 />
                             </div>
-                            {status === 'loading' ? 'SENDING...' : 'SEND FORM'}
+                            <span className='drop-shadow-[0_0_5px_rgba(255,255,255,0.36)]'>{status === 'loading' ? 'SENDING...' : 'SEND FORM'}</span>
                         </button>
 
                         {status === 'success' && (

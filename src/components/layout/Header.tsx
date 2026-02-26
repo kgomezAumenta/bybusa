@@ -42,7 +42,7 @@ const Header = () => {
     const rightLinks = navLinks.slice(2, 4);
 
     return (
-        <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-sm' : 'bg-transparent'}`}>
+        <header className="absolute top-0 left-0 w-full z-50 bg-transparent">
             {/* 1. TOP BAR (PROMO) */}
             <div className="flex justify-center">
                 <div className="bg-[#208EC8] px-8 py-2 md:py-3 rounded-b-[2rem] shadow-md z-10 transition-transform duration-300 transform origin-top">
