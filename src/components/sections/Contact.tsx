@@ -52,7 +52,7 @@ const Contact = () => {
     };
 
     return (
-        <section id="contact" className="pb-10 pt-10 scroll-mt-20 bg-[#F7F2F0] rounded-t-[3vw] relative">
+        <section id="contact" className="pb-10 pt-10 scroll-mt-20 bg-[#F7F2F0] rounded-t-[0vw] md:rounded-t-[3vw] relative overflow-hidden md:overflow-visible">
             {/* Decorative Elements */}
             <div className="absolute top-0 right-0 w-full h-0 z-30 pointer-events-none">
                 {/* Tomato */}

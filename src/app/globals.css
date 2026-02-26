@@ -15,19 +15,20 @@
   --text-shadow-glow: 0px 0px 5px #FFFFFF5C;
 }
 
+html {
+  scroll-behavior: smooth !important;
+}
+
 @layer base {
   button {
     text-shadow: var(--text-shadow-glow);
     cursor: pointer;
   }
 
-  html {
-    scroll-behavior: smooth;
-  }
-
   body {
     @apply text-dark bg-white overflow-x-hidden;
     font-family: var(--font-montserrat), sans-serif;
+    scroll-behavior: smooth;
   }
 
   h1,

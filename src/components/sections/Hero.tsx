@@ -1,10 +1,11 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 
 const Hero = () => {
     return (
-        <section id="home" className="relative min-h-[85vh] md:min-h-[100vh] flex items-center overflow-hidden pt-20 bg-[#F2FAFF]">
+        <section id="home" className="relative min-h-[85vh] md:min-h-[100vh] flex items-center overflow-x-hidden pt-20 bg-[#F2FAFF]">
 
             {/* 1. BACKGROUND (MOUNT IMAGE + OVERLAY) */}
             <div className="absolute inset-0 z-0">
@@ -45,17 +46,58 @@ const Hero = () => {
             </div>
 
             {/* 4. BOTTOM WAVE ZONE */}
-            <div className="absolute bottom-0 left-0 w-full leading-none z-40 transform translate-y-1">
-                <div className="relative w-full h-[350px] md:h-[375px]">
-                    <div className="relative w-full h-[350px] md:h-[375px]">
-                        <Image
-                            src="/assets/hero/wave_hero.svg"
-                            alt=""
-                            fill
-                            className="object-cover object-top"
-                            priority
-                        />
-                    </div>
+            <div className="absolute bottom-0 left-0 w-full leading-none z-40">
+                {/* Wrapper que recorta el SVG (30% vertical visible) */}
+                <div className="relative w-full overflow-hidden h-[205px] md:h-[268px]">
+                    <svg
+                        viewBox="0 0 1442 570"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="block w-full h-auto transform -translate-y-[4%] md:-translate-y-[12%]"
+                    >
+                        <g filter="url(#filter0_d_1_734)">
+                            <path
+                                d="M-0.378783 140.668L281.555 190.505C328.305 198.769 376.47 190.133 417.437 166.142L466.678 137.306C593.305 63.1523 746.461 49.5212 884.193 100.147L1119.05 186.473C1149.14 197.533 1181.45 201.198 1213.25 197.158L1658 140.668V551.517H-0.378783V140.668Z"
+                                fill="url(#fillTopRightFade)"
+                            />
+                        </g>
+
+                        <defs>
+                            <linearGradient id="fillTopRightFade" x1="0" y1="1" x2="1" y2="0">
+                                <stop offset="0%" stop-color="#208EC8" stop-opacity="1" />
+                                <stop offset="60%" stop-color="#208EC8" stop-opacity="1" />
+                                <stop offset="100%" stop-color="#208EC8" stop-opacity="0.10" />
+                            </linearGradient>
+
+                            <filter
+                                id="filter0_d_1_734"
+                                x="-44.3788"
+                                y="0"
+                                width="1746.38"
+                                height="569.517"
+                                filterUnits="userSpaceOnUse"
+                                color-interpolation-filters="sRGB"
+                            >
+                                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                                <feColorMatrix
+                                    in="SourceAlpha"
+                                    type="matrix"
+                                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                                    result="hardAlpha"
+                                />
+                                <feOffset dy="-26" />
+                                <feGaussianBlur stdDeviation="22" />
+                                <feComposite in2="hardAlpha" operator="out" />
+                                <feColorMatrix
+                                    type="matrix"
+                                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+                                />
+                                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1_734" />
+                                <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1_734" result="shape" />
+                            </filter>
+                        </defs>
+                    </svg>
+
 
                     {/* 5. FEATURES & BUTTON (Inside/On the blue zone) */}
                     <div className="absolute bottom-8 md:bottom-12 left-0 w-full z-50">
@@ -100,7 +142,23 @@ const Hero = () => {
 
                                 {/* yellow Button */}
                                 <div className="pt-4 md:pt-0">
-                                    <button className="bg-[#FEB100] hover:bg-[#E5A000] text-white font-bold py-4 px-10 rounded-full transition-all duration-300 transform hover:scale-105 shadow-xl uppercase tracking-[0.1em] text-sm md:text-base flex items-center gap-3">
+                                    <Link
+                                        href="#products"
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            const element = document.getElementById('products');
+                                            if (element) {
+                                                const offset = 80;
+                                                const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+                                                window.scrollTo({
+                                                    top: elementPosition - offset,
+                                                    behavior: 'smooth'
+                                                });
+                                                window.history.pushState(null, '', '#products');
+                                            }
+                                        }}
+                                        className="bg-[#FEB100] hover:bg-[#E5A000] text-white font-bold py-4 px-10 rounded-full transition-all duration-300 transform hover:scale-105 shadow-xl uppercase tracking-[0.1em] text-sm md:text-base flex items-center gap-3"
+                                    >
                                         <div className="relative w-8 h-8 flex-shrink-0">
                                             <Image
                                                 src="/assets/icons/icon_bottle.svg"
@@ -110,14 +168,14 @@ const Hero = () => {
                                             />
                                         </div>
                                         <span className='drop-shadow-[0_0_5px_rgba(255,255,255,0.36)]' >SEE PRODUCTS!</span>
-                                    </button>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </div >
+        </section >
     );
 };
 

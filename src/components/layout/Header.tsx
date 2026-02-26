@@ -41,6 +41,26 @@ const Header = () => {
     const leftLinks = navLinks.slice(0, 2);
     const rightLinks = navLinks.slice(2, 4);
 
+    const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+        e.preventDefault();
+        const element = document.getElementById(id);
+        if (element) {
+            const offset = 80; // Adjust for header height
+            const bodyRect = document.body.getBoundingClientRect().top;
+            const elementRect = element.getBoundingClientRect().top;
+            const elementPosition = elementRect - bodyRect;
+            const offsetPosition = elementPosition - offset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+
+            // Update URL hash without jumping
+            window.history.pushState(null, '', `#${id}`);
+        }
+    };
+
     return (
         <header className="absolute top-0 left-0 w-full z-50 bg-transparent">
             {/* 1. TOP BAR (PROMO) */}
@@ -64,6 +84,7 @@ const Header = () => {
                             <Link
                                 key={link.name}
                                 href={link.href}
+                                onClick={(e) => scrollToSection(e, link.id)}
                                 className={`text-base tracking-[0.05em] uppercase transition-all duration-200 hover:opacity-70 ${activeSection === link.id ? 'font-bold text-[#1D1D1B]' : 'font-medium text-[#1D1D1B]/80'
                                     }`}
                             >
@@ -72,7 +93,7 @@ const Header = () => {
                         ))}
 
                         {/* Centered Logo */}
-                        <Link href="/#home" className="relative w-30 h-15 lg:w-40 lg:h-20 transition-transform duration-300 hover:scale-105 flex-shrink-0">
+                        <Link href="/#home" onClick={(e) => scrollToSection(e, 'home')} className="relative w-30 h-15 lg:w-40 lg:h-20 transition-transform duration-300 hover:scale-105 flex-shrink-0">
                             <Image
                                 src="/assets/ui/header-logo.svg"
                                 alt="BYB USA Logo"
@@ -87,6 +108,7 @@ const Header = () => {
                             <Link
                                 key={link.name}
                                 href={link.href}
+                                onClick={(e) => scrollToSection(e, link.id)}
                                 className={`text-base tracking-[0.05em] uppercase transition-all duration-200 hover:opacity-70 ${activeSection === link.id ? 'font-bold text-[#1D1D1B]' : 'font-medium text-[#1D1D1B]/80'
                                     }`}
                             >
@@ -99,7 +121,7 @@ const Header = () => {
                     <div className="flex md:hidden justify-between items-center h-full">
                         <div className="w-10"></div> {/* Spacer for symmetry if needed */}
 
-                        <Link href="/#home" className="relative w-32 h-16">
+                        <Link href="/#home" onClick={(e) => scrollToSection(e, 'home')} className="relative w-32 h-16">
                             <Image
                                 src="/assets/ui/header-logo.svg"
                                 alt="BYB USA Logo"
@@ -144,9 +166,12 @@ const Header = () => {
                             <Link
                                 key={link.name}
                                 href={link.href}
+                                onClick={(e) => {
+                                    scrollToSection(e, link.id);
+                                    setMobileMenuOpen(false);
+                                }}
                                 className={`text-xl tracking-[0.1em] uppercase ${activeSection === link.id ? 'font-bold text-[#1D1D1B]' : 'font-medium text-[#1D1D1B]/60'
                                     }`}
-                                onClick={() => setMobileMenuOpen(false)}
                             >
                                 {link.name}
                             </Link>
