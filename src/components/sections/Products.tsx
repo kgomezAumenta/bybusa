@@ -38,7 +38,7 @@ const Products = () => {
     const activeCategory = productData.find(cat => cat.id === activeTab);
 
     return (
-        <section id="products" className="relative section-padding pt-45 bg-secondary-blue overflow-visible">
+        <section id="products" className="relative section-padding pt-45 bg-secondary-blue overflow-visible ms:overflow-hidden ">
             <BestFlavorsStrip />
             <div className="absolute top-0 left-0 w-full z-0 pointer-events-none">
                 <Image
