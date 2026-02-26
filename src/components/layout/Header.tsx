@@ -57,49 +57,42 @@ const Header = () => {
                 className="w-full h-[90px] md:h-[110px] flex items-center"
             >
                 <div className="container mx-auto px-6 h-full">
-                    {/* Desktop Layout: 3 Columns (1fr auto 1fr) */}
-                    <div className="hidden md:grid grid-cols-[1fr_auto_1fr] items-center h-full">
-
-                        {/* Left Navigation */}
-                        <nav className="flex justify-start space-x-12 lg:space-x-20">
-                            {leftLinks.map((link) => (
-                                <Link
-                                    key={link.name}
-                                    href={link.href}
-                                    className={`text-base tracking-[0.05em] uppercase transition-all duration-200 hover:opacity-70 ${activeSection === link.id ? 'font-bold text-[#1D1D1B]' : 'font-medium text-[#1D1D1B]/80'
-                                        }`}
-                                >
-                                    {link.name}
-                                </Link>
-                            ))}
-                        </nav>
+                    {/* Desktop Layout: Centered Flex with consistent gaps */}
+                    <div className="hidden md:flex justify-center items-center gap-12 lg:gap-20 h-full">
+                        {/* Left links */}
+                        {leftLinks.map((link) => (
+                            <Link
+                                key={link.name}
+                                href={link.href}
+                                className={`text-base tracking-[0.05em] uppercase transition-all duration-200 hover:opacity-70 ${activeSection === link.id ? 'font-bold text-[#1D1D1B]' : 'font-medium text-[#1D1D1B]/80'
+                                    }`}
+                            >
+                                {link.name}
+                            </Link>
+                        ))}
 
                         {/* Centered Logo */}
-                        <div className="flex justify-center px-8">
-                            <Link href="/#home" className="relative w-30 h-15 lg:w-30 lg:h-15 transition-transform duration-300 hover:scale-105">
-                                <Image
-                                    src="/assets/ui/header-logo.svg"
-                                    alt="BYB USA Logo"
-                                    fill
-                                    className="object-contain"
-                                    priority
-                                />
-                            </Link>
-                        </div>
+                        <Link href="/#home" className="relative w-30 h-15 lg:w-40 lg:h-20 transition-transform duration-300 hover:scale-105 flex-shrink-0">
+                            <Image
+                                src="/assets/ui/header-logo.svg"
+                                alt="BYB USA Logo"
+                                fill
+                                className="object-contain"
+                                priority
+                            />
+                        </Link>
 
-                        {/* Right Navigation */}
-                        <nav className="flex justify-end space-x-12 lg:space-x-20">
-                            {rightLinks.map((link) => (
-                                <Link
-                                    key={link.name}
-                                    href={link.href}
-                                    className={`text-base tracking-[0.05em] uppercase transition-all duration-200 hover:opacity-70 ${activeSection === link.id ? 'font-bold text-[#1D1D1B]' : 'font-medium text-[#1D1D1B]/80'
-                                        }`}
-                                >
-                                    {link.name}
-                                </Link>
-                            ))}
-                        </nav>
+                        {/* Right links */}
+                        {rightLinks.map((link) => (
+                            <Link
+                                key={link.name}
+                                href={link.href}
+                                className={`text-base tracking-[0.05em] uppercase transition-all duration-200 hover:opacity-70 ${activeSection === link.id ? 'font-bold text-[#1D1D1B]' : 'font-medium text-[#1D1D1B]/80'
+                                    }`}
+                            >
+                                {link.name}
+                            </Link>
+                        ))}
                     </div>
 
                     {/* Mobile Layout */}

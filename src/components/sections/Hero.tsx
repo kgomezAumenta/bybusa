@@ -55,15 +55,13 @@ const Hero = () => {
             {/* 5. WAVE INFERIOR AZUL */}
             <div className="absolute bottom-0 left-0 w-full leading-none z-40 transform translate-y-1">
                 <div className="relative w-full h-[350px] md:h-[280px]">
-                    <svg
-                        viewBox="0 0 1000 100"
-                        preserveAspectRatio="none"
-                        className="absolute bottom-0 left-0 w-full h-full fill-[#208ec8]"
-                    >
-                        <g transform="rotate(180 500 50)">
-                            <path d="M500 4c-125 0-125 96-250 96S125 4 0 4V0h1000v4c-125 0-125 96-250 96S625 4 500 4Z"></path>
-                        </g>
-                    </svg>
+                    <Image
+                        src="/assets/hero/wave_hero.svg"
+                        alt=""
+                        fill
+                        className="object-cover object-bottom"
+                        priority
+                    />
 
                     {/* 6. FEATURES INFERIORES (Inside/On the blue zone) */}
                     <div className="absolute bottom-6 md:bottom-12 left-0 w-full z-50">
@@ -72,10 +70,15 @@ const Hero = () => {
 
                                 {/* Feature 1 */}
                                 <div className="flex items-center space-x-4 max-w-[280px]">
-                                    <div className="flex-shrink-0 w-12 h-12 md:w-14 md:h-14 bg-[#0E587F] rounded-full flex items-center justify-center border-2 border-white shadow-lg">
-                                        <svg className="w-6 h-6 md:w-8 md:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                                        </svg>
+                                    <div className="flex-shrink-0 w-12 h-12 md:w-14 md:h-14 bg-[#0E587F] rounded-full flex items-center justify-center border-2 border-white shadow-lg overflow-hidden p-2">
+                                        <div className="relative w-7 h-7 md:w-9 md:h-9">
+                                            <Image
+                                                src="/assets/icons/icon_natural.svg"
+                                                alt=""
+                                                fill
+                                                className="object-contain brightness-0 invert"
+                                            />
+                                        </div>
                                     </div>
                                     <div className="text-white text-left">
                                         <h4 className="font-bold text-sm md:text-base tracking-widest uppercase">100% NATURAL</h4>
@@ -85,10 +88,15 @@ const Hero = () => {
 
                                 {/* Feature 2 */}
                                 <div className="flex items-center space-x-4 max-w-[320px]">
-                                    <div className="flex-shrink-0 w-12 h-12 md:w-14 md:h-14 bg-[#0E587F] rounded-full flex items-center justify-center border-2 border-white shadow-lg">
-                                        <svg className="w-6 h-6 md:w-8 md:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-                                        </svg>
+                                    <div className="flex-shrink-0 w-12 h-12 md:w-14 md:h-14 bg-[#0E587F] rounded-full flex items-center justify-center border-2 border-white shadow-lg overflow-hidden p-2">
+                                        <div className="relative w-7 h-7 md:w-9 md:h-9">
+                                            <Image
+                                                src="/assets/icons/icon_artisanal.svg"
+                                                alt=""
+                                                fill
+                                                className="object-contain brightness-0 invert"
+                                            />
+                                        </div>
                                     </div>
                                     <div className="text-white text-left">
                                         <h4 className="font-bold text-sm md:text-base tracking-widest uppercase">ARTISANAL QUALITY</h4>
