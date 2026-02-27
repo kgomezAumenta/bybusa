@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 const Hero = () => {
     return (
-        <section id="home" className="relative min-h-[85vh] md:min-h-[100vh] flex items-center overflow-x-hidden pt-20 bg-[#F2FAFF]">
+        <section id="home" className="relative min-h-[85vh] md:min-h-[100vh] flex items-center overflow-x-hidden overflow-y-hidden pt-20 bg-[#F2FAFF]">
 
             {/* 1. BACKGROUND (MOUNT IMAGE + OVERLAY) */}
             <div className="absolute inset-0 z-0">
@@ -48,7 +48,7 @@ const Hero = () => {
             {/* 4. BOTTOM WAVE ZONE */}
             <div className="absolute bottom-0 left-0 w-full leading-none z-40">
                 {/* Wrapper que recorta el SVG (30% vertical visible) */}
-                <div className="relative w-full overflow-hidden h-[205px] md:h-[268px]">
+                <div className="relative w-full h-[420px] md:h-[268px]">
                     <svg
                         viewBox="0 0 1442 570"
                         fill="none"
@@ -64,9 +64,9 @@ const Hero = () => {
 
                         <defs>
                             <linearGradient id="fillTopRightFade" x1="0" y1="1" x2="1" y2="0">
-                                <stop offset="0%" stop-color="#208EC8" stop-opacity="1" />
-                                <stop offset="60%" stop-color="#208EC8" stop-opacity="1" />
-                                <stop offset="100%" stop-color="#208EC8" stop-opacity="0.10" />
+                                <stop offset="0%" stopColor="#208EC8" stopOpacity="1" />
+                                <stop offset="60%" stopColor="#208EC8" stopOpacity="1" />
+                                <stop offset="100%" stopColor="#208EC8" stopOpacity="0.10" />
                             </linearGradient>
 
                             <filter
@@ -76,9 +76,9 @@ const Hero = () => {
                                 width="1746.38"
                                 height="569.517"
                                 filterUnits="userSpaceOnUse"
-                                color-interpolation-filters="sRGB"
+                                colorInterpolationFilters="sRGB"
                             >
-                                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                                <feFlood floodOpacity="0" result="BackgroundImageFix" />
                                 <feColorMatrix
                                     in="SourceAlpha"
                                     type="matrix"
@@ -100,7 +100,7 @@ const Hero = () => {
 
 
                     {/* 5. FEATURES & BUTTON (Inside/On the blue zone) */}
-                    <div className="absolute bottom-8 md:bottom-12 left-0 w-full z-50">
+                    <div className="absolute bottom-24 md:bottom-12 left-0 w-full z-50absolute bottom-8 md:bottom-12 left-0 w-full z-50">
                         <div className="w-full md:w-[90%] px-6 md:pl-[114px] md:pr-12">
                             <div className="flex flex-col md:flex-row items-center md:items-end justify-start gap-8 md:gap-8">
 
