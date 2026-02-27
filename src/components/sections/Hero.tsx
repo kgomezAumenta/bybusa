@@ -157,7 +157,7 @@ const Hero = () => {
                                                 window.history.pushState(null, '', '#products');
                                             }
                                         }}
-                                        className="bg-[#FEB100] hover:bg-[#E5A000] text-white font-bold py-4 px-10 rounded-full transition-all duration-300 transform hover:scale-105 shadow-xl uppercase tracking-[0.1em] text-sm md:text-base flex items-center gap-3"
+                                        className="bg-[#FEB100] hover:bg-[#E5A000] text-white font-bold py-4 px-10 rounded-full transition-all duration-300 transform hover:scale-105 shadow-sm uppercase tracking-[0.1em] text-sm md:text-base flex items-center gap-3"
                                     >
                                         <div className="relative w-8 h-8 flex-shrink-0">
                                             <Image
