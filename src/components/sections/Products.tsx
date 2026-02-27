@@ -7,7 +7,7 @@ import { productData, Product } from '@/data/products';
 const BestFlavorsStrip = () => {
     const items = Array.from({ length: 20 });
     return (
-        <div className="absolute top-4 left-0 w-full overflow-y-visible z-20">
+        <div className="absolute max-[400px]:top-4 top-4 md:top-4 left-0 w-full overflow-y-visible z-20">
             <div
                 className="bg-white py-2 md:py-2 flex items-center whitespace-nowrap w-[250vw] -left-[75vw] relative shadow-[0_4px_10px_rgba(0,0,0,0.1)] border-y border-gray-100 overflow-y-visible"
                 style={{ transform: 'rotate(-2.64deg)' }}
@@ -105,7 +105,7 @@ const Products = () => {
     return (
         <section id="products" className="relative section-padding pt-45 bg-secondary-blue overflow-hidden md:overflow-visible">
             <BestFlavorsStrip />
-            <div className="absolute top-0 left-0 w-full z-0 pointer-events-none">
+            <div className="absolute max-[400px]:top-10 top-5 md:top-0 left-0 w-full z-0 pointer-events-none">
                 <Image
                     src="/assets/general/wave_products.svg"
                     alt=""

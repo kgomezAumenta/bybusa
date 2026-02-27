@@ -32,7 +32,7 @@ const About = () => {
                             </div>
 
                             {/* Red Sticker (Bottom Left of Image) */}
-                            <div className="absolute -bottom-12  -left-4 z-30 w-32 md:w-62 rotate-[-6deg]">
+                            <div className="absolute -bottom-4 left-5 max-[400px]:left-6 md:-bottom-12 md:-left-4 z-30 w-38 md:w-62 rotate-[-6deg]">
                                 <Image
                                     src="/assets/about/insignia_best.svg"
                                     alt="Best on the market badge"
@@ -47,7 +47,7 @@ const About = () => {
                     {/* Text Column */}
                     <div className="w-full lg:w-1/2 relative">
                         {/* Top Right Quality Badge - Center on mobile, Right on desktop */}
-                        <div className="absolute -top-20 left-1/2 -translate-x-1/2 lg:left-auto lg:right-0 lg:top-0 lg:-translate-x-12 lg:-translate-y-12 w-[80px] md:w-42 rotate-[6deg] z-20">
+                        <div className="absolute max-[400px]:-top-10 max-[400px]:left-80 max-[400px]:w-25 -top-10 left-85 w-30 md:-top-20 md:-left-1/2 -translate-x-1/2 lg:left-auto lg:right-0 lg:top-0 lg:-translate-x-11 lg:-translate-y-14 md:w-42 rotate-[6deg] z-20">
                             <Image
                                 src="/assets/about/insignia_quality.svg"
                                 alt="Quality guarantee badge"

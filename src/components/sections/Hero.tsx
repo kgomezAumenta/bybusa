@@ -48,7 +48,7 @@ const Hero = () => {
             {/* 4. BOTTOM WAVE ZONE */}
             <div className="absolute bottom-0 left-0 w-full leading-none z-40">
                 {/* Wrapper que recorta el SVG (30% vertical visible) */}
-                <div className="relative w-full h-[330px] md:h-[268px]">
+                <div className="relative w-full h-[330px] max-[400px]:h-[310px] md:h-[268px]">
                     <svg
                         viewBox="0 0 1442 570"
                         fill="none"
