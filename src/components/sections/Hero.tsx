@@ -10,18 +10,18 @@ const Hero = () => {
             {/* 1. BACKGROUND (MOUNT IMAGE + OVERLAY) */}
             <div className="absolute inset-0 z-0">
                 {/* Image on the right half */}
-                <div className="absolute top-0 left-[45%] w-[55%] h-full overflow-hidden">
+                <div className="absolute top-0 left-0 w-full md:left-[45%] md:w-[55%] h-full overflow-hidden">
                     <Image
                         src="/assets/hero/hero-bg.png"
                         alt="Authentic Homemade Taste"
                         fill
-                        className="object-cover object-left"
+                        className="object-cover object-center md:object-left"
                         priority
                     />
                 </div>
 
                 {/* Overlay Gradient: Starting solid left, fading right */}
-                <div className="absolute top-0 left-0 w-[55%] h-full bg-gradient-to-r from-[#F2FAFF] via-[#F2FAFF]/90 via-60% to-transparent z-10" />
+                <div className="absolute top-0 left-0 w-[0%] md:w-[55%] h-full bg-gradient-to-r from-[#F2FAFF] via-[#F2FAFF]/90 via-60% to-transparent z-10" />
             </div>
             {/* 2. DECORATIVE ELEMENT (TOMATO) */}
             <div className="absolute left-0 top-1/2 -translate-y-[15%] -translate-x-[50%] -rotate-15 w-[320px] h-[320px] z-50 pointer-events-none hidden lg:block">
@@ -48,12 +48,12 @@ const Hero = () => {
             {/* 4. BOTTOM WAVE ZONE */}
             <div className="absolute bottom-0 left-0 w-full leading-none z-40">
                 {/* Wrapper que recorta el SVG (30% vertical visible) */}
-                <div className="relative w-full h-[420px] md:h-[268px]">
+                <div className="relative w-full h-[330px] md:h-[268px]">
                     <svg
                         viewBox="0 0 1442 570"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
-                        className="block w-full h-auto transform -translate-y-[4%] md:-translate-y-[12%]"
+                        className="block h-auto w-[220vw] max-w-none relative left-[55%] md:left-1/2 -translate-x-1/2 -translate-y-[4%] md:w-full md:left-0 md:translate-x-0 md:-translate-y-[12%]"
                     >
                         <g filter="url(#filter0_d_1_734)">
                             <path
@@ -100,9 +100,9 @@ const Hero = () => {
 
 
                     {/* 5. FEATURES & BUTTON (Inside/On the blue zone) */}
-                    <div className="absolute bottom-24 md:bottom-12 left-0 w-full z-50absolute bottom-8 md:bottom-12 left-0 w-full z-50">
+                    <div className="absolute bottom-[16px] md:bottom-12 left-0 w-full z-50">
                         <div className="w-full md:w-[90%] px-6 md:pl-[114px] md:pr-12">
-                            <div className="flex flex-col md:flex-row items-center md:items-end justify-start gap-8 md:gap-8">
+                            <div className="flex flex-col md:flex-row items-center md:items-end justify-start gap-6 md:gap-8">
 
                                 {/* Feature 1 */}
                                 <div className="flex items-center space-x-4 max-w-[320px]">
@@ -116,7 +116,7 @@ const Hero = () => {
                                             />
                                         </div>
                                     </div>
-                                    <div className="text-white text-left">
+                                    <div className="text-white text-center md:text-left">
                                         <h4 className="font-montserrat font-bold text-base md:text-lg tracking-widest uppercase">100% NATURAL</h4>
                                         <p className="text-[10px] md:text-xs opacity-90 leading-tight">No artificial preservatives or added colors.</p>
                                     </div>
@@ -134,14 +134,14 @@ const Hero = () => {
                                             />
                                         </div>
                                     </div>
-                                    <div className="text-white text-left">
+                                    <div className="text-white text-center md:text-left">
                                         <h4 className="font-montserrat font-bold text-base md:text-lg tracking-widest uppercase">ARTISANAL QUALITY</h4>
                                         <p className="text-[10px] md:text-xs opacity-90 leading-tight">Crafted in small batches to ensure authentic flavor.</p>
                                     </div>
                                 </div>
 
                                 {/* yellow Button */}
-                                <div className="pt-4 md:pt-0">
+                                <div className="pt-0 md:pt-0">
                                     <Link
                                         href="#products"
                                         onClick={(e) => {
