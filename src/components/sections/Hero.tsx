@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 const Hero = () => {
     return (
-        <section id="home" className="relative min-h-[85vh] md:min-h-[100vh] flex items-center overflow-x-hidden overflow-y-hidden pt-20 bg-[#F2FAFF]">
+        <section id="home" className="relative min-h-[85vh] max-[400px]:min-h-[110vh] md:min-h-[100vh] flex items-center overflow-x-hidden overflow-y-hidden pt-20 bg-[#F2FAFF]">
 
             {/* 1. BACKGROUND (MOUNT IMAGE + OVERLAY) */}
             <div className="absolute inset-0 z-0">
@@ -53,7 +53,7 @@ const Hero = () => {
                         viewBox="0 0 1442 570"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
-                        className="block h-auto w-[220vw] max-w-none relative left-[55%] md:left-1/2 -translate-x-1/2 -translate-y-[4%] md:w-full md:left-0 md:-translate-x-1/2 md:-translate-y-[12%]"
+                        className="block h-auto w-[250vw] max-w-none relative left-[55%] md:left-1/2 -translate-x-1/2 -translate-y-[4%] md:w-full md:left-0 md:-translate-x-1/2 md:-translate-y-[12%]"
                     >
                         <g filter="url(#filter0_d_1_734)">
                             <path

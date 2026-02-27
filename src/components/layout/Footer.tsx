@@ -60,7 +60,7 @@ const Footer = () => {
                                 />
 
                                 {/* Quality Insignia Overlapping */}
-                                <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 -translate-y-6 z-20 w-32 h-32 md:w-40 md:h-40 transform hover:scale-110 transition-transform duration-300">
+                                <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 -translate-y-6 z-20 w-32 h-32 md:w-40 md:h-40">
                                     <Image
                                         src="/assets/ui/insignia_quality-trust.svg"
                                         alt="Quality and Trust Insignia"
@@ -76,9 +76,17 @@ const Footer = () => {
                     </div>
                 </div>
 
-                <p className="text-light text-sm text-center">
-                    Powered by <span className="font-bold mr-4">Aumenta</span>
-                    {/* <span className="mx-2">|</span> */}
+                <p className="text-light text-sm text-center flex items-center justify-center gap-1">
+                    Powered by
+                    <Link href="https://aumenta.do" target="_blank" rel="noopener noreferrer" className="hover:scale-105 transition-transform duration-300">
+                        <Image
+                            src="/assets/footer/Aumenta.svg"
+                            alt="Aumenta Logo"
+                            width={100}
+                            height={40}
+                            className="inline-block brightness-0 invert"
+                        />
+                    </Link>
                     Copyright <span className="font-bold">{new Date().getFullYear()}</span>
                 </p>
             </div>
