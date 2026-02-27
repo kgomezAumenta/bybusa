@@ -53,7 +53,7 @@ const Hero = () => {
                         viewBox="0 0 1442 570"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
-                        className="block h-auto w-[220vw] max-w-none relative left-[55%] md:left-1/2 -translate-x-1/2 -translate-y-[4%] md:w-full md:left-0 md:translate-x-0 md:-translate-y-[12%]"
+                        className="block h-auto w-[220vw] max-w-none relative left-[55%] md:left-1/2 -translate-x-1/2 -translate-y-[4%] md:w-full md:left-0 md:-translate-x-1/2 md:-translate-y-[12%]"
                     >
                         <g filter="url(#filter0_d_1_734)">
                             <path
