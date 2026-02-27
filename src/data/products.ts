@@ -37,18 +37,18 @@ export const productData: Category[] = [
                 id: "ketchup-1",
                 name: "Tomato Ketchup",
                 description: "The Ketchup type Sauce B&B, is made with fresh tomatoes and fresh vegetables",
-                image: "/assets/products/ketchup.png",
+                image: "/assets/products/ketchup405.webp",
                 sizes: [
-                    { label: "405.8 ml", image: "/assets/products/ketchup.png" }
+                    { label: "405.8 ml", image: "/assets/products/ketchup405.webp" }
                 ],
             },
             {
                 id: "mustard-1",
                 name: "Mustard Traditional",
                 description: "Perfect for pairing with grilled meats, roasts, sausages, and cold cuts.",
-                image: "/assets/products/mustard.png",
+                image: "/assets/products/mustard368.webp",
                 sizes: [
-                    { label: "368 ml", image: "/assets/products/mustard.png" }
+                    { label: "368 ml", image: "/assets/products/mustard368.webp" }
                 ],
             },
         ],
@@ -58,32 +58,59 @@ export const productData: Category[] = [
         label: "Hot Sauces & Peppers",
         items: [
             {
+                id: "hot_peppers-1",
+                name: "Hot Peppers",
+                description: "The pickled sliced jalapeño peppers B&B are made from 100% natural ingredients, selected from the best quality and combined with carrots, onions and spices to give them the exquisite flavor that characterizes them.",
+                image: "/assets/products/hot_peppers180.webp",
+                sizes: [
+                    { label: "180 ml", image: "/assets/products/hot_peppers180.webp" }
+                ],
+            },
+            {
+                id: "picamas-1",
+                name: "Picamás",
+                description: "Picamas stands for authentic Guatemalan cuisine, heritage, and culture. Our premium blend makes every meal SABROSO!",
+                image: "/assets/products/picamas185.webp",
+                sizes: [
+                    { label: "185 ml", image: "/assets/products/picamas185.webp" },
+                    { label: "405 ml", image: "/assets/products/picamas405.webp" },
+                    { label: "490 ml", image: "/assets/products/picamas490.webp" }
+                ],
+            },
+            {
+                id: "picamas-2",
+                name: "Picamás Rojo",
+                description: "Picamas stands for authentic Guatemalan cuisine, heritage, and culture. Our premium blend makes every meal SABROSO!",
+                image: "/assets/products/roja185.webp",
+                sizes: [
+                    { label: "185 ml", image: "/assets/products/roja185.webp" }
+                ],
+            },
+            {
                 id: "habanero-1",
-                name: "Extra Hot Habanero",
-                description: "For the brave ones who love intense heat.",
-                image: "/assets/products/mayo.png",
+                name: "Habanero",
+                description: "For lovers of spicy salsa. Its intense orange color, its aroma and delicious flavor come from the ripe habanero pepper with which our PICAMÁS® habanero salsa is prepared.",
+                image: "/assets/products/habanero145.webp",
                 sizes: [
-                    { label: "150ml", image: "/assets/products/mayo.png" }
+                    { label: "145 ml", image: "/assets/products/habanero145.webp" }
                 ],
             },
             {
-                id: "jalapeno-1",
-                name: "Green Jalapeño",
-                description: "Fresh and spicy with a citrus touch.",
-                image: "/assets/products/mustard.png",
+                id: "cobanero-1",
+                name: "Cobanero",
+                description: "The unmatched flavor of the cobanero pepper, made into a salsa",
+                image: "/assets/products/cobanero145.webp",
                 sizes: [
-                    { label: "150ml", image: "/assets/products/mustard.png" },
-                    { label: "300ml", image: "/assets/products/mustard.png" }
+                    { label: "145 ml", image: "/assets/products/cobanero145.webp" }
                 ],
             },
             {
-                id: "chipotle-1",
-                name: "Smoky Chipotle",
-                description: "Sweet and smoky flavor profile.",
-                image: "/assets/products/ketchup.png",
+                id: "chiltepe-1",
+                name: "Chiltepe",
+                description: "Our Chiltepe PICAMÁS® salsa brings the traditional flavor of the Guatemalan recipe to your table.",
+                image: "/assets/products/chiltepe145.webp",
                 sizes: [
-                    { label: "150ml", image: "/assets/products/ketchup.png" },
-                    { label: "300ml", image: "/assets/products/ketchup.png" }
+                    { label: "145 ml", image: "/assets/products/chiltepe145.webp" }
                 ],
             },
         ],
@@ -93,31 +120,21 @@ export const productData: Category[] = [
         label: "Culinary & Seasoning Sauces",
         items: [
             {
-                id: "soy-1",
-                name: "Premium Soy Sauce",
-                description: "Authentic fermented soy beans.",
-                image: "/assets/products/mayo.png",
-                sizes: [
-                    { label: "250ml", image: "/assets/products/mayo.png" },
-                    { label: "500ml", image: "/assets/products/mayo.png" }
-                ],
-            },
-            {
                 id: "worcestershire-1",
-                name: "Traditional Worcestershire",
-                description: "Essential for your meat and cocktails.",
-                image: "/assets/products/mustard.png",
+                name: "Worcestershire sauce",
+                description: "It is a perfect seasoning for your meals; as well as the preparation of dressings vinaigrettes and marinades.",
+                image: "/assets/products/worcestershire152.webp",
                 sizes: [
-                    { label: "250ml", image: "/assets/products/mustard.png" }
+                    { label: "152 ml", image: "/assets/products/worcestershire152.webp" }
                 ],
             },
             {
-                id: "teriyaki-1",
-                name: "Sweet Teriyaki",
-                description: "Perfect glaze for grilled meats.",
-                image: "/assets/products/ketchup.png",
+                id: "soy-1",
+                name: "Soy Sauce",
+                description: "It is one of the condiments that brings the most benefits to our body since it contains a wide variety of nutrients like protein and fiber, which are very beneficial nutrients.",
+                image: "/assets/products/soy152.webp",
                 sizes: [
-                    { label: "300ml", image: "/assets/products/ketchup.png" }
+                    { label: "152 ml", image: "/assets/products/soy152.webp" }
                 ],
             },
         ],
@@ -127,32 +144,39 @@ export const productData: Category[] = [
         label: "Concentrates",
         items: [
             {
-                id: "lemon-1",
-                name: "Lemon Concentrate",
-                description: "100% natural lemon juice extract.",
-                image: "/assets/products/mayo.png",
+                id: "horchata-1",
+                name: "Horchata",
+                description: "Concentrates B&B are products made from 100% natural fruit pulp. They are practical and easy to use, they only need to be diluted in water and enjoy a delicious natural drink.",
+                image: "/assets/products/horchata678.webp",
                 sizes: [
-                    { label: "1L", image: "/assets/products/mayo.png" },
-                    { label: "5L", image: "/assets/products/mayo.png" }
+                    { label: "678 ml", image: "/assets/products/horchata678.webp" },
                 ],
             },
             {
-                id: "passion-1",
-                name: "Passion Fruit Pulp",
-                description: "Fresh tropical flavor for juices.",
-                image: "/assets/products/mustard.png",
+                id: "carambola-1",
+                name: "Carambola (Star Fruit)",
+                description: "Our Starfruit Concentrate makes it easy to prepare a delicious natural drink—just add water and sugar. It's also perfect for adding a creative touch to desserts or savory dishes.",
+                image: "/assets/products/carambola678.webp",
                 sizes: [
-                    { label: "1L", image: "/assets/products/mustard.png" },
-                    { label: "5L", image: "/assets/products/mustard.png" }
+                    { label: "678 ml", image: "/assets/products/carambola678.webp" },
+                ],
+            },
+            {
+                id: "jamaica-1",
+                name: "Hibiscus (Jamaica)",
+                description: "Our Hibiscus Concentrate lets you make a traditional, refreshing drink in minutes—just add water and sugar. It's also ideal for experimenting in the kitchen with versatile recipes.",
+                image: "/assets/products/jamaica678.webp",
+                sizes: [
+                    { label: "678 ml", image: "/assets/products/jamaica678.webp" }
                 ],
             },
             {
                 id: "tamarind-1",
-                name: "Tamarind Base",
-                description: "Traditional sweet and sour base.",
-                image: "/assets/products/ketchup.png",
+                name: "Tamarind",
+                description: "Bring an authentic, natural twist to your drinks with our Tamarind Concentrate—simply add water and sugar.",
+                image: "/assets/products/tamarind678.webp",
                 sizes: [
-                    { label: "1L", image: "/assets/products/ketchup.png" }
+                    { label: "678 ml", image: "/assets/products/tamarind678.webp" }
                 ],
             },
         ],
