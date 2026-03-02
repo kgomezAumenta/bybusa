@@ -1,80 +1,81 @@
 import { NextResponse } from 'next/server';
-import nodemailer from 'nodemailer';
 
 export async function POST(request: Request) {
     try {
         const body = await request.json();
-        const { fullName, phone, email, message, honeypot } = body;
+        const { fullName, phone, email, message, honeypot } = body ?? {};
 
-        // Check honeypot (Anti-spam)
+        // Anti-spam
         if (honeypot) {
             return NextResponse.json({ message: 'Spam detected' }, { status: 400 });
         }
 
-        // Basic validation
+        // Validation
         if (!fullName || !phone || !email || !message) {
             return NextResponse.json({ message: 'All fields are required' }, { status: 400 });
         }
 
-        console.log('New Contact Form Submission:', { fullName, phone, email, message });
+        const hubUrl = process.env.HUB_CONTACT_URL;
+        const apiKey = process.env.HUB_API_KEY;
 
-        // SMTP Configuration from env vars
-        const {
-            SMTP_HOST,
-            SMTP_PORT,
-            SMTP_USER,
-            SMTP_PASS,
-            CONTACT_TO_EMAIL,
-            CONTACT_FROM_EMAIL,
-        } = process.env;
-
-        // If SMTP environment variables are missing, we log and return success (fallback)
-        if (!SMTP_HOST || !SMTP_USER || !SMTP_PASS) {
-            console.warn('SMTP environment variables missing. Email was not sent, but message was logged.');
-            return NextResponse.json({
-                message: 'Message received and logged (Developer Mode: SMTP not configured)',
-                logged: true
-            }, { status: 200 });
+        if (!hubUrl) {
+            return NextResponse.json(
+                { message: 'HUB_CONTACT_URL missing' },
+                { status: 500 }
+            );
         }
 
-        // Create transporter
-        const transporter = nodemailer.createTransport({
-            host: SMTP_HOST,
-            port: Number(SMTP_PORT) || 587,
-            secure: Number(SMTP_PORT) === 465, // true for 465, false for other ports
-            auth: {
-                user: SMTP_USER,
-                pass: SMTP_PASS,
-            },
+        // Build payload EXACTLY like the form fields (no extras for now)
+        const params = new URLSearchParams({
+            fullName: String(fullName),
+            phone: String(phone),
+            email: String(email),
+            message: String(message),
+            honeypot: String(honeypot ?? ''),
         });
 
-        // Send email
-        await transporter.sendMail({
-            from: CONTACT_FROM_EMAIL || SMTP_USER,
-            to: CONTACT_TO_EMAIL,
-            subject: `New Contact from BYB USA: ${fullName}`,
-            text: `
-        Name: ${fullName}
-        Phone: ${phone}
-        Email: ${email}
-        Message: ${message}
-      `,
-            html: `
-        <h3>New Contact Form Submission</h3>
-        <p><strong>Name:</strong> ${fullName}</p>
-        <p><strong>Phone:</strong> ${phone}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Message:</strong> ${message}</p>
-      `,
-        });
+        const headers: Record<string, string> = {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        };
 
-        return NextResponse.json({ message: 'Email sent successfully' }, { status: 200 });
+        // Only if your Hub actually needs it
+        if (apiKey) headers['Authorization'] = `Bearer ${apiKey}`;
 
-    } catch (error: any) {
-        console.error('Error in contact route:', error);
-        return NextResponse.json({
-            message: 'Failed to process request',
-            error: error.message
-        }, { status: 500 });
+        // Timeout 10s
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 10000);
+
+        const hubRes = await fetch(hubUrl, {
+            method: 'POST',
+            headers,
+            body: params.toString(),
+            signal: controller.signal,
+        }).finally(() => clearTimeout(timeoutId));
+
+        const hubText = await hubRes.text();
+
+        if (!hubRes.ok) {
+            // Return upstream error details (super useful to debug)
+            return NextResponse.json(
+                {
+                    message: 'Hub request failed',
+                    hubStatus: hubRes.status,
+                    hubBody: hubText.slice(0, 2000), // avoid huge payloads
+                },
+                { status: 502 }
+            );
+        }
+
+        return NextResponse.json({ message: 'Success', hubBody: hubText }, { status: 200 });
+    } catch (err: any) {
+        if (err?.name === 'AbortError') {
+            return NextResponse.json({ message: 'Request timeout. Please try again.' }, { status: 504 });
+        }
+        return NextResponse.json(
+            { message: 'Failed to process request', error: err?.message ?? String(err) },
+            { status: 500 }
+        );
     }
+
+    console.log('HUB_CONTACT_URL:', process.env.HUB_CONTACT_URL);
 }
